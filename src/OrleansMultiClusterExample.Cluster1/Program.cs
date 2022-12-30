@@ -49,7 +49,7 @@ app.UseHttpsRedirection();
 
 app.MapGet("/cluster1", (IClusterClient cluster1Client) =>
 {
-    return cluster1Client.GetGrain<ICluster1Grain>("1").CallCluster2UsingClient();
+    return cluster1Client.GetGrain<ICluster1Grain>("").CallCluster2UsingClient();
 });
 
 await Task.WhenAll(clientBuilder.RunAsync(), app.RunAsync());
